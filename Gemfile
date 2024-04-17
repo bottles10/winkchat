@@ -67,3 +67,5 @@ group :test do
 end
 
 gem "cloudinary", "~> 2.0"
+
+gem "simple_form", "~> 5.3"
