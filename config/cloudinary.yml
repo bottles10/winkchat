@@ -1,9 +1,3 @@
-development: 
-  cloud_name: "bottles"
-  api_key: "714958387998994"
-  api_secret: "RUXMXE2TYl0fijEXCcPFH-QBR3g"
-  secure: true
-
 production:
   cloud_name: "bottles"
   api_key: "714958387998994"

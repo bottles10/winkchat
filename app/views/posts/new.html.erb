@@ -1,7 +1,33 @@
-<h1>New Post</h1>
+<div class="p-10 md:p-20 ml-auto mr-auto border rounded shadow-lg">
+    <%= form_with model: @post do |f| %>
+        <% if @post.errors.any? %>
+        <div class="p-5 mb-10 text-red-600 border border-red-500 animate-pulse">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    
+          <ul>
+            <% @post.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<%= simple_form_for @post do |f| %>
-    <%= f.input :image %>
-    <%= f.input :caption %>
-    <%= f.button :submit %>
-<% end %>
+    
+        <div>
+            <div class="flex justify-center">
+                <%= f.file_field :image %>
+            </div>
+
+            <div class="m-10">
+                <%= f.label :caption, class: "block text-xl text-gray-700" %>
+                <div class="">
+                    <%= f.text_area :caption %>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <%= f.submit class: "bg-green-600 hover:bg-green-500 py-2 px-6 rounded text-green-100" %>
+            </div>
+        </div>
+    <% end %>
+</div>

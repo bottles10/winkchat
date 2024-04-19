@@ -12,9 +12,18 @@
   </head>
 
   <body>
-  <nav>
-  <header class="text-teal-600 text-3xl">WinkChat</header>
-  </nav>
+    <header class="fixed top-0 w-full">
+      <nav class="bg-white p-5 mb-4 flex justify-between items-center shadow-md text-blue-400">
+        <div class="">
+          <h1 class="text-2xl "><%= link_to "WinkChat", root_path %></h1>
+        </div>
+        <div class="space-x-6">
+        <%= link_to "New Post", new_post_path %>
+        <%= link_to "Login", "#", class: "hidden md:inline-block" %>
+        <%= link_to "Register", "#", class: "hidden md:inline-block" %>
+        </div>
+      </nav>
+    </header>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

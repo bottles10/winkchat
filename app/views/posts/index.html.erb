@@ -2,7 +2,10 @@
 
 <div>
 <% @posts.each do |post| %>
-    <%= image_tag(post.image.url, width: "640") %>
-    <%= post.caption %>
+    <div class="border rounded shadow-md mb-10">
+    <h2 class="p-4 text-blue-400">Username</h2>
+    <%= image_tag(post.image, width: "640") %>
+    <p class="p-4 text-gray-700"><%= post.caption %></p>
+    </div>
 <% end %>
 </div>
