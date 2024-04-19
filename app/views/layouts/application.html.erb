@@ -15,12 +15,12 @@
     <header class="fixed top-0 w-full">
       <nav class=" bg-white p-5 mb-4 flex justify-between items-center shadow-md text-blue-400">
         <div class="">
-          <h1 class="text-2xl "><%= link_to "WinkChat", root_path %></h1>
+          <h1 class="text-2xl hover:text-blue-300"><%= link_to "WinkChat", root_path %></h1>
         </div>
         <div class="space-x-6">
-        <%= link_to "New Post", new_post_path %>
-        <%= link_to "Login", "#", class: "hidden md:inline-block" %>
-        <%= link_to "Register", "#", class: "hidden md:inline-block" %>
+        <%= link_to "New Post", new_post_path, class: "hover:text-blue-600 transition duration-300" %>
+        <%= link_to "Login", "#", class: "hidden md:inline-block hover:text-blue-600 transition duration-300" %>
+        <%= link_to "Register", "#", class: "hidden md:inline-block hover:text-blue-600 transition duration-300" %>
         </div>
       </nav>
       
