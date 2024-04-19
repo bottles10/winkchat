@@ -17,10 +17,13 @@
         <div class="">
           <h1 class="text-2xl hover:text-blue-300"><%= link_to "WinkChat", root_path %></h1>
         </div>
-        <div class="space-x-6">
-        <%= link_to "New Post", new_post_path, class: "hover:text-blue-600 transition duration-300" %>
-        <%= link_to "Login", "#", class: "hidden md:inline-block hover:text-blue-600 transition duration-300" %>
-        <%= link_to "Register", "#", class: "hidden md:inline-block hover:text-blue-600 transition duration-300" %>
+        <div class="flex items-center md:inline-block text-center space-x-6">
+        <%= link_to "New Post", new_post_path, class: "border border-blue-400 hover:border-blue-600 py-2 w-32 rounded inline-block hover:text-blue-600 transition duration-300" %>
+        <%= link_to "Login", "#", class: "hidden border border-blue-400 hover:border-blue-600 py-2 w-32 rounded md:inline-block hover:text-blue-600 transition duration-300" %>
+        <%= link_to "Register", "#", class: "hidden border border-blue-400 hover:border-blue-600 py-2 w-32 rounded md:inline-block hover:text-blue-600 transition duration-300" %>
+        
+        <!-- Mobile specific -->
+        <%= link_to "⚙️", "#", class: "md:hidden text-2xl" %> <!-- For Account Settings -->
         </div>
       </nav>
       
