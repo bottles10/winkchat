@@ -1,0 +1,18 @@
+<% if notice %>
+        <div id="fadeout" class="float-right mr-4 bg-green-100 rounded text-green-600 py-3 px-4 shadow-md">
+          <div class="flex items-center justify-between">
+              <p class="mr-5"><%= notice %></p> <!-- Notification added -->
+        
+              <button class="text-4xl text-green-900 hover:text-green-700 transform hover:scale-105 transition duration-300" onclick="this.parentElement.remove()"> <!-- Added dismiss button -->
+                &times;
+              </button>
+          </div>
+        </div>
+        
+        <script>
+            setTimeout(function() {
+            const fadeout = document.querySelector("#fadeout")
+            fadeout.classList.add("hidden")
+            }, 3000)
+        </script>
+<% end %>
