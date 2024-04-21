@@ -1,8 +1,5 @@
 <div class="mx-auto mb-5 border rounded shadow-md md:w-1/2">
-	<h2 class="p-4 text-blue-400"><%= @post.user.username %></h2>
-	<%= image_tag(@post.image.url, width: "640", oncontextmenu: "return false") %>
-	<p class="p-4"><%= @post.caption %></p>
-	
+	<%= render 'post', post: @post %>
 </div>
 
 <div class="flex justify-center space-x-5">
