@@ -4,7 +4,7 @@
 <% @posts.each do |post| %>
     <div class="border rounded shadow-md mb-10 md:w-2/5">
     <h2 class="p-4 text-blue-400">Username</h2>
-    <%= image_tag(post.image, width: "640") %>
+    <%= link_to image_tag(post.image, width: "640"), post_path(post) %>
     <p class="p-4 text-gray-700"><%= post.caption %></p>
     </div>
 <% end %>

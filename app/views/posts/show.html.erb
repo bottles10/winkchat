@@ -1,0 +1,12 @@
+<div class="">
+	<h2>Username</h2>
+	<%= image_tag(@post.image.url, width: "640") %>
+	<p><%= @post.caption %></p>
+	
+	<div class="center">
+		<%= link_to "Back", posts_path %>
+		|
+		<%= link_to "Edit", edit_post_path(@post) %>
+
+	</div>
+</div>
