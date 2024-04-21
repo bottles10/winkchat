@@ -18,12 +18,16 @@
           <h1 class="text-2xl hover:text-blue-300"><%= link_to "WinkChat", root_path %></h1>
         </div>
         <div class="flex items-center md:inline-block text-center space-x-6">
-        <%= link_to "New Post", new_post_path, class: "border border-blue-400 hover:border-blue-600 py-2 w-32 rounded inline-block hover:text-blue-600 transition duration-300" %>
-        <%= link_to "Login", "#", class: "hidden border border-blue-400 hover:border-blue-600 py-2 w-32 rounded md:inline-block hover:text-blue-600 transition duration-300" %>
-        <%= link_to "Register", "#", class: "hidden border border-blue-400 hover:border-blue-600 py-2 w-32 rounded md:inline-block hover:text-blue-600 transition duration-300" %>
+          <% if user_signed_in? %>
+            <%= link_to "New Post", new_post_path, class: "border border-blue-400 hover:border-blue-600 py-2 w-32 rounded inline-block hover:text-blue-600 transition duration-300" %>
+            <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Do you want to log out?"}, class: "border border-blue-400 hover:border-blue-600 py-2 w-32 rounded inline-block hover:text-blue-600 transition duration-300" %>
+          <% else %>  
+            <%= link_to "Login", new_user_session_path, class: "hidden border border-blue-400 hover:border-blue-600 py-2 w-32 rounded md:inline-block hover:text-blue-600 transition duration-300" %>
+            <%= link_to "Register", new_user_registration_path, class: "hidden border border-blue-400 hover:border-blue-600 py-2 w-32 rounded md:inline-block hover:text-blue-600 transition duration-300" %>
         
-        <!-- Mobile specific -->
-        <%= link_to "⚙️", "#", class: "md:hidden text-2xl" %> <!-- For Account Settings -->
+            <!-- Mobile specific -->
+            <%= link_to "⚙️", "#", class: "md:hidden text-2xl" %> <!-- For Account Settings -->
+          <% end %>
         </div>
       </nav>
       

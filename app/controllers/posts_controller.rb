@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_post, only: %i[show edit update destroy]
+
+  
   def index
     @posts = Post.all.order(created_at: :desc).limit(5)
   end
