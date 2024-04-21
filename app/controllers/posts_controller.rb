@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_post, only: %i[show edit update destroy]
+  before_action :check_owner, only: %i[edit update destroy]
 
   
   def index
@@ -11,11 +12,11 @@ class PostsController < ApplicationController
   end
 
   def new 
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to posts_path, notice: "New post created successfully!"
@@ -45,6 +46,13 @@ end
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def check_owner
+    
+    unless current_user == @post.user
+      redirect_to posts_path, alert: "You do not own this Post!"
+    end
   end
 
   def post_params
