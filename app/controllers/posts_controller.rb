@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "New post created successfully!"
     else
+      flash.now[:alert] = "Post not saved. Please check form!"
       render :new, status: :unprocessable_entity
     end
   end
@@ -25,10 +26,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
-
-    redirect_to post_path(@post)
-  end
+    if @post.update(post_params)
+      redirect_to posts_path, notice: "Post updated successfully!"
+    else
+      flash.now[:alert] = "Update failed. Please check the form!"
+      render :edit, status: :unprocessable_entity 
+    end
+end
 
   def destroy
     @post.destroy

@@ -1,6 +1,8 @@
-<div class="flex justify-center mb-2 rounded">
-	<%= image_tag(@post.image.url, width: "380", class: "rounded") %>
-</div>
+<% if @post.image.content_type.start_with?('image/') %>
+	<div class="flex justify-center mb-2 rounded">
+		<%= image_tag(@post.image.url, width: "380", class: "rounded") %>
+	</div>
+<% end %>
 
 <%= render "form", post: @post %>
 
