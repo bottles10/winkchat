@@ -1,12 +1,12 @@
-<div class="">
-	<h2>Username</h2>
-	<%= image_tag(@post.image.url, width: "640") %>
-	<p><%= @post.caption %></p>
+<div class="mx-auto mb-5 border rounded shadow-md md:w-1/2">
+	<h2 class="p-4">Username</h2>
+	<%= image_tag(@post.image.url, width: "640", oncontextmenu: "return false") %>
+	<p class="p-4"><%= @post.caption %></p>
 	
-	<div class="center">
-		<%= link_to "Back", posts_path %>
-		|
-		<%= link_to "Edit", edit_post_path(@post) %>
+</div>
 
-	</div>
+<div class="flex justify-center space-x-5">
+	<%= link_to "Back", posts_path, class: "border rounded py-2 px-6 bg-gray-200 hover:bg-white transition duration-300" %>
+		
+	<%= link_to "Edit", edit_post_path(@post), class: "border rounded py-2 px-6 bg-blue-500 hover:bg-blue-400 text-white transition duration-300" %>
 </div>

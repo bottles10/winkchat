@@ -1,6 +1,11 @@
+<div class="flex justify-center mb-2 rounded">
+	<%= image_tag(@post.image.url, width: "380", class: "rounded") %>
+</div>
+
 <%= render "form", post: @post %>
 
-<div class="flex justify-center space-x-10">
-    <%= link_to "Cancel", posts_path %>
-    <%= link_to "Destroy", @post, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<div class="flex justify-center space-x-5">
+	<%= link_to "Cancel", posts_path, class: "border rounded py-2 px-6 bg-gray-200 hover:bg-white transition duration-300" %>
+		
+	<%= link_to "Destroy", @post, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "border rounded py-2 px-6 bg-red-500 hover:bg-red-400 text-white transition duration-300" %>
 </div>
