@@ -71,3 +71,5 @@ gem "cloudinary", "~> 2.0"
 gem "simple_form", "~> 5.3"
 
 gem "tailwindcss-rails", "~> 2.4"
+
+gem "active_storage_validations", "~> 1.1"
