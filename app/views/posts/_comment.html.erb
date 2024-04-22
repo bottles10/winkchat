@@ -1,0 +1,21 @@
+<% if post.comments %>
+		<% post.comments.order(created_at: :desc).limit(action_name == 'index' ? 2 : nil).each do |comment| %>
+			
+			<div class="p-4 flex justify-between">
+				<div>
+					<p class="mr-4 inline text-pink-500 text-sm font-bold"><%= comment.user.username.titleize %></p>
+						<% if action_name == 'show' %>
+							<p class="inline text-sm leading-relaxed"><%= comment.content %></p>
+						<% else %>
+							<p class="inline text-sm leading-relaxed"><%= truncate(comment.content, length: 34, separator: ' ') %></p>
+						<% end %>
+				</div>
+
+				<% if comment.user == current_user %>
+					<div>
+					<%= link_to "x", post_comment_path(post, comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "font-bold text-red-600" %>
+					</div>
+				<% end %>
+			</div>
+		<% end%>
+<% end %>

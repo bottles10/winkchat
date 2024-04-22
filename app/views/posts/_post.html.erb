@@ -1,28 +1,9 @@
 <h2 class="p-4 text-blue-400 font-bold"><%= post.user.username.titleize %></h2>
 	<%= link_to image_tag(post.image, width: "640", oncontextmenu: "return false"), post_path(post) %>
 	<p class="p-4 text-gray-700"><span class="mr-4 text-blue-400 font-bold"><%= post.user.username.titleize %></span> <span class="leading-relaxed"><%= post.caption %></span></p>
-
-	<% if post.comments %>
-		<% post.comments.order(created_at: :desc).each do |comment| %>
-			<div class="p-4 flex justify-between">
-				<div>
-					<p class="mr-4 inline text-pink-500 text-sm font-bold"><%= comment.user.username.titleize %></p>
-						<% if action_name == 'show' %>
-							<p class="inline text-sm leading-relaxed"><%= comment.content %></p>
-						<% else %>
-							<p class="inline text-sm leading-relaxed"><%= truncate(comment.content, length: 34, separator: ' ') %></p>
-						<% end %>
-				</div>
-
-				<% if comment.user == current_user %>
-					<div>
-					<%= link_to "x", post_comment_path(post, comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "font-bold text-red-600" %>
-					</div>
-				<% end %>
-			</div>
-		<% end%>
-	<% end %>
-
+	
+	<%= render 'comment', post: post %>
+	
 	<div class="p-4">
 		<%= form_for [post, post.comments.new] do |f| %>
 			<%= f.text_field :content, placeholder: "💌  Add a comment....", class: "border-0 hover:border-b-2 hover:border-green-400 focus:ring-0 shadow-md transition-colors hover:animate-pulse" %>
