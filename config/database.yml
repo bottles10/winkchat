@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: winkchat_production
-  username: winkchat
-  password: <%= ENV["WINKCHAT_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>

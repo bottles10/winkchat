@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 		if @comment.save
 			redirect_to root_path, notice: "You commentted the hell outta the post😁!"
 		else
-			render root_path, alert: "Something wen horribly wrong. Try again😱!"
+			render root_path, alert: "Something went horribly wrong. Try again😱!"
 		end
   end
 
