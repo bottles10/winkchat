@@ -80,3 +80,5 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
+  sslmode: require
+  sslrootcert: <%= Rails.root.join('config', 'certs', 'root.crt') %>
