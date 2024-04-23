@@ -1,11 +1,15 @@
-<h2 class="p-4 text-blue-400 font-bold"><%= post.user.username.titleize %></h2>
-	<%= link_to image_tag(post.image, width: "640", oncontextmenu: "return false"), post_path(post) %>
-	<p class="p-4 text-gray-700"><span class="mr-4 text-blue-400 font-bold"><%= post.user.username.titleize %></span> <span class="leading-relaxed"><%= post.caption %></span></p>
-	
-	<%= render 'comment', post: post %>
-	
-	<div class="p-4">
-		<%= form_for [post, post.comments.new] do |f| %>
-			<%= f.text_field :content, placeholder: "💌  Add a comment....", class: "border-0 hover:border-b-2 hover:border-green-400 focus:ring-0 shadow-md transition-colors hover:animate-pulse" %>
-		<% end %>
-	</div>
+<div class="flex items-center justify-between">
+	<h2 class="p-4 text-blue-400 font-bold"><%= post.user.username.titleize %></h2>
+	<h2 class="p-4 text-gray-400 text-xs font-bold"><%= time_ago_in_words_for(post.created_at) %> ago</h2>
+</div>
+<%= link_to image_tag(post.image, width: "640", oncontextmenu: "return false"), post_path(post) %>
+<p class="p-4 text-gray-700"><span class="mr-4 text-blue-400 font-bold"><%= post.user.username.titleize %></span> <span class="leading-relaxed"><%= post.caption %></span></p>
+
+<%= render 'comment', post: post %>
+
+<div class="p-4">
+	<%= form_for [post, post.comments.new] do |f| %>
+		<%= f.text_field :content, placeholder: "💌  Add a comment....", class: "border-0 hover:border-b-2 hover:border-green-400 focus:ring-0 shadow-md transition-colors hover:animate-pulse" %>
+	<% end %>
+</div>
+Bottles
