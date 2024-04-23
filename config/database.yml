@@ -79,4 +79,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["winkchat_databse_url"] %>
+  url: <%= ENV["DATABASE_URL"] %>
