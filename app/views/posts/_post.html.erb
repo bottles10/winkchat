@@ -1,5 +1,5 @@
 <div class="flex items-center justify-between">
-	<h2 class="p-4 text-blue-400 font-bold"><%= post.user.username.titleize %></h2>
+	<h2 class="p-4 text-blue-400 font-bold"><span class="inline"><%= image_tag("selfie.png", width: "50", class: "inline rounded-full") %></span> <span class="inline"><%= post.user.username.titleize %></span></h2>
 	<h2 class="p-4 text-gray-400 text-xs font-bold"><%= time_ago_in_words_for(post.created_at) %> ago</h2>
 </div>
 <%= link_to image_tag(post.image, width: "640", oncontextmenu: "return false"), post_path(post) %>
