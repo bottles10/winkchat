@@ -1,8 +1,9 @@
 module PostsHelper
-    def form_image_select(post)
-        return image_tag post.image.url(width: "640"),
-                                        id: 'image-preview',
-                                        class: 'img-responsive' if post.image.exists?
-        image_tag 'placeholder.jpg', id: 'image-preview', class: 'img-responsive'
+    def post_image_select(post)
+        if post.image.attached?
+            image_tag post.image.url , width: "380", id: "image-preview", class: "rounded"
+        else
+            image_tag 'image-placeholder.jpg', width: "380", id: "image-preview", class: "rounded"
+        end
     end
 end
