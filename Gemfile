@@ -75,4 +75,4 @@ gem "active_storage_validations", "~> 1.1"
 
 gem "devise", "~> 4.9"
 
-gem "inline_svg", "~> 1.9"
+gem "pagy", "~> 8.3"

@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     include ActiveStorage::SetCurrent
+    include Pagy::Backend
+    
     before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
