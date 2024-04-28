@@ -4,7 +4,7 @@
 		
 		<div class="pl-4 pr-4 flex justify-between">
 			<div>
-				<p class="mr-4 inline text-pink-500 text-sm font-bold"><%= comment.user.username.titleize %></p>
+				<p class="mr-4 inline text-pink-500 text-sm font-bold"><%= link_to comment.user.username.titleize, profile_path(comment.user.username) %></p>
 					<% if action_name == 'show' %>
 						<p class="inline text-sm leading-relaxed"><%= comment.content %></p>
 					<% else %>
@@ -20,3 +20,10 @@
 		</div>
 	<% end%>
 <% end %>
+
+<!-- New Comment form -->
+<div class="p-4">
+	<%= form_for [post, post.comments.new] do |f| %>
+		<%= f.text_field :content, placeholder: "💌  Add a comment....", class: "border-0 hover:border-b-2 hover:border-green-400 focus:ring-0 shadow-md transition-colors hover:animate-pulse" %>
+	<% end %>
+</div>

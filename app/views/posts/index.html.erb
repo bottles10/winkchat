@@ -4,6 +4,7 @@
 <% @posts.includes(:user).each do |post| %>
 	<div class="border rounded shadow-md mb-2 md:w-2/5">
 		<%= render 'post', post: post %>
+		<%= render 'comment', post: post %>
 	</div>
 <% end %>
 <%== pagy_nav(@pagy) if @pagy.pages > 1 %>

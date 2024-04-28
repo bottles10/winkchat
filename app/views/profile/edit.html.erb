@@ -1,0 +1,18 @@
+<div class="p-10 border mx-auto ">
+<%= link_to "Back", profile_path(@user.username), class: "inline-block mb-2 border py-2 px-6 rounded-lg text-center transform hover:scale-105 transition duration-300"  %>
+
+    <div class="flex justify-center">
+        <%= form_for @user, url: {action: 'update'} do |f| %>
+            <h4 class="mb-4 font-bold text-2xl">Change your profile image</h4>
+            <div id="avatar-placeholder-div" class="mb-4">
+                <%= profile_avatar_select(@user) %>
+            </div>
+            <%= f.file_field :avatar, onChange: 'loadAvatar(event)', class: "mb-8" %>
+            <h4 class="text-2xl font-bold text-center">Update your Bio</h4>
+            <%= f.text_area :bio, rows: 4, class: " w-full md:w-96 mb-2" %>
+            <div class="">
+                <%= f.submit 'Update Profile', class: "border py-2 px-6 rounded-lg text-center bg-green-500 hover:bg-green-400 transform hover:scale-105 text-green-100 transition duration-300" %>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+	<div class="p-5 md:p-10 ">
+		<div class="md:w-3/4 lg:w-1/2 mx-auto flex items-center space-x-8 md:space-x-24 mb-20">
+			<div class=""><%= profile_avatar_select(@user) %></div>
+			<div class="">
+				<div class="flex items-center space-x-6 mb-4">
+					<h2 class="text-4xl font-bold"><%= @user.username.titleize %></h2>
+					<% if @user == current_user %>
+						<span class="p-2 border px-2 rounded text-xs md:text-sm hover:bg-gray-100">
+							<%= link_to "Edit Profile", edit_profile_path(@user.username) %>
+						</span>
+					<% end %>				
+				</div>
+				<p class="mb-4"><%= @user.bio? ? @user.bio : "No Bio" %></p>
+				<p class="font-bold"><%= pluralize(@user.posts.count, "Post") %></p>
+			</div>
+			
+		</div>
+		<!-- <hr class="m-5"> -->
+		<div class="md:w-3/4 lg:w-1/2 mx-auto">
+			<% @posts.each do |post| %>
+				<div class="border shadow-md rounded">
+					<%= render "posts/post", post: post %>
+				</div>
+			<% end %>
+		</div>
+	</div>
